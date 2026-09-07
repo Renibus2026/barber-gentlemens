@@ -693,8 +693,17 @@ h1, h2, h3, h4 {
   .hero {
     padding-bottom: 50px;
   }
-  .hero-visual-wrapper {
+  .hero-visual-wrapper,
+  .hero-gentleman-showcase,
+  .hero-gentleman-photo,
+  .desktop-only {
     display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
   }
 }
 

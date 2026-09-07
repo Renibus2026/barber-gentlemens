@@ -23,7 +23,26 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700&display=swap" rel="stylesheet">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2.2">
+  <style>
+    @media (max-width: 1024px) {
+      .hero-visual-wrapper,
+      .hero-gentleman-showcase,
+      .hero-gentleman-photo,
+      .desktop-only {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        width: 0 !important;
+        overflow: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+      }
+      .hero {
+        padding-bottom: 40px !important;
+      }
+    }
+  </style>
 
   <!-- Schema.org Microdata -->
   <script type="application/ld+json">
@@ -189,7 +208,7 @@
             </div>
           </div>
 
-          <div class="hero-visual-wrapper">
+          <div class="hero-visual-wrapper desktop-only">
             <div class="hero-gentleman-showcase">
               <div class="gentleman-dark-halo"></div>
               <div class="gentleman-aura-glow"></div>
@@ -1065,6 +1084,6 @@
   </div>
 
   <!-- Scripts -->
-  <script src="app.js"></script>
+  <script src="app.js?v=2.2"></script>
 </body>
 </html>
