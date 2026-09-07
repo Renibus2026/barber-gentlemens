@@ -690,46 +690,18 @@ h1, h2, h3, h4 {
 }
 
 @media (max-width: 1024px) {
+  .hero {
+    padding-bottom: 50px;
+  }
   .hero-visual-wrapper {
-    justify-content: center;
-    align-items: center;
-    margin-top: 24px;
-  }
-  .hero-gentleman-showcase {
-    max-width: 500px;
-    justify-content: center;
-  }
-  .hero-gentleman-photo {
-    max-height: 580px;
-    object-position: center;
-  }
-  .gentleman-dark-halo {
-    width: 130%;
-    right: -15%;
+    display: none !important;
   }
 }
 
 @media (max-width: 640px) {
   .hero {
+    padding-bottom: 36px;
     overflow-x: clip;
-  }
-  .hero-visual-wrapper {
-    overflow: hidden;
-  }
-  .hero-gentleman-showcase {
-    max-width: 330px;
-  }
-  .hero-gentleman-photo {
-    max-height: 440px;
-  }
-  .gentleman-dark-halo {
-    width: 100%;
-    right: 0;
-  }
-  .gentleman-aura-glow {
-    width: 260px;
-    height: 260px;
-    right: 5%;
   }
 }
 
