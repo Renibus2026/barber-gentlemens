@@ -54,38 +54,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 3. Category Filter Tabs
   const tabBtns = document.querySelectorAll('.tab-btn');
-  const serviceCards = document.querySelectorAll('.service-card');
+  const serviceRows = document.querySelectorAll('.service-row');
+
+  function filterCategory(category) {
+    serviceRows.forEach(row => {
+      const rowCat = row.dataset.category || '';
+      const matches = category === 'all' || rowCat.split(/\s+/).includes(category);
+      if (matches) {
+        row.style.display = 'flex';
+        requestAnimationFrame(() => {
+          row.style.opacity = '1';
+          row.style.transform = 'translateY(0)';
+        });
+      } else {
+        row.style.opacity = '0';
+        row.style.transform = 'translateY(8px)';
+        setTimeout(() => {
+          if (row.style.opacity === '0') {
+            row.style.display = 'none';
+          }
+        }, 180);
+      }
+    });
+  }
 
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       tabBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-
-      const category = btn.dataset.category;
-      serviceCards.forEach(card => {
-        if (category === 'all' || card.dataset.category === category) {
-          card.style.display = 'flex';
-          setTimeout(() => {
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-          }, 20);
-        } else {
-          card.style.opacity = '0';
-          card.style.transform = 'translateY(10px)';
-          setTimeout(() => {
-            card.style.display = 'none';
-          }, 200);
-        }
-      });
+      filterCategory(btn.dataset.category);
     });
   });
 
+  // Set initial category filter (haircuts active by default)
+  const initialTab = document.querySelector('.tab-btn.active');
+  filterCategory(initialTab ? initialTab.dataset.category : 'haircuts');
+
   // 4. Interactive Calculator & Service Selection
-  const selectBtns = document.querySelectorAll('.btn-select-service');
   const calcBar = document.getElementById('calcBar');
   const calcCount = document.getElementById('calcCount');
   const calcTotal = document.getElementById('calcTotal');
   const calcBookBtn = document.getElementById('calcBookBtn');
+  const calcResetBtn = document.getElementById('calcResetBtn');
   const toast = document.getElementById('toastNotice');
 
   let selectedServices = [];
@@ -126,30 +136,52 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  selectBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const card = btn.closest('.service-card');
-      const id = card.dataset.id;
-      const name = card.dataset.name;
-      const price = parseInt(card.dataset.price, 10);
+  function toggleServiceSelection(row) {
+    const id = row.dataset.id;
+    const name = row.dataset.name;
+    const price = parseInt(row.dataset.price, 10);
+    const selectBtn = row.querySelector('.btn-select-service');
+    const btnText = selectBtn ? selectBtn.querySelector('.btn-text') : null;
 
-      const existsIdx = selectedServices.findIndex(s => s.id === id);
+    const existsIdx = selectedServices.findIndex(s => s.id === id);
 
-      if (existsIdx >= 0) {
-        selectedServices.splice(existsIdx, 1);
-        btn.classList.remove('selected');
-        btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> В калькулятор`;
-        showToast(`Услуга "${name}" удалена`);
-      } else {
-        selectedServices.push({ id, name, price });
-        btn.classList.add('selected');
-        btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> В расчете`;
-        showToast(`Услуга "${name}" добавлена (+${price.toLocaleString('ru-RU')} ₽)`);
-      }
+    if (existsIdx >= 0) {
+      selectedServices.splice(existsIdx, 1);
+      row.classList.remove('selected');
+      if (selectBtn) selectBtn.classList.remove('selected');
+      if (btnText) btnText.textContent = 'В расчет';
+      showToast(`Услуга "${name}" удалена`);
+    } else {
+      selectedServices.push({ id, name, price });
+      row.classList.add('selected');
+      if (selectBtn) selectBtn.classList.add('selected');
+      if (btnText) btnText.textContent = 'Выбрано';
+      showToast(`Услуга "${name}" добавлена (+${price.toLocaleString('ru-RU')} ₽)`);
+    }
 
-      updateCalculator();
+    updateCalculator();
+  }
+
+  serviceRows.forEach(row => {
+    row.addEventListener('click', () => {
+      toggleServiceSelection(row);
     });
   });
+
+  if (calcResetBtn) {
+    calcResetBtn.addEventListener('click', () => {
+      selectedServices = [];
+      serviceRows.forEach(row => {
+        row.classList.remove('selected');
+        const selectBtn = row.querySelector('.btn-select-service');
+        const btnText = selectBtn ? selectBtn.querySelector('.btn-text') : null;
+        if (selectBtn) selectBtn.classList.remove('selected');
+        if (btnText) btnText.textContent = 'В расчет';
+      });
+      updateCalculator();
+      showToast('Калькулятор очищен');
+    });
+  }
 
   // 5. FAQ Accordion
   const faqItems = document.querySelectorAll('.faq-item');

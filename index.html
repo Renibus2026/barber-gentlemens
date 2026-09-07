@@ -304,362 +304,336 @@
           </p>
         </div>
 
-        <!-- Filter Tabs -->
-        <div class="category-tabs reveal-on-scroll">
-          <button class="tab-btn active" data-category="all">Все услуги</button>
-          <button class="tab-btn" data-category="haircuts">Стрижки</button>
-          <button class="tab-btn" data-category="beard">Борода & Бритье</button>
-          <button class="tab-btn" data-category="combos">Комплексы & Акции</button>
-          <button class="tab-btn" data-category="care">Уход & SPA</button>
+        <!-- Filter Tabs (Horizontal Swipe on Mobile) -->
+        <div class="category-tabs-wrapper reveal-on-scroll">
+          <div class="category-tabs" role="tablist">
+            <button class="tab-btn active" data-category="haircuts" role="tab">
+              <span>Стрижки</span> <span class="tab-count">4</span>
+            </button>
+            <button class="tab-btn" data-category="beard" role="tab">
+              <span>Борода & Бритье</span> <span class="tab-count">4</span>
+            </button>
+            <button class="tab-btn" data-category="combos" role="tab">
+              <span>Комплексы</span> <span class="tab-count">3</span>
+            </button>
+            <button class="tab-btn" data-category="care" role="tab">
+              <span>Уход & SPA</span> <span class="tab-count">4</span>
+            </button>
+            <button class="tab-btn" data-category="all" role="tab">
+              <span>Все услуги</span> <span class="tab-count">14</span>
+            </button>
+          </div>
         </div>
 
-        <!-- Services Grid -->
-        <div class="services-grid reveal-on-scroll">
+        <!-- Compact Services List -->
+        <div class="services-list reveal-on-scroll" id="servicesList">
 
           <!-- 1. Мужская стрижка -->
-          <div class="service-card featured" data-category="haircuts" data-id="667" data-name="Мужская стрижка" data-price="800">
-            <span class="service-badge">Хит продаж</span>
-            <div class="service-top">
-              <div class="service-header-row">
-                <h3 class="service-name">Мужская стрижка</h3>
-                <span class="service-price">800 ₽</span>
+          <div class="service-row featured" data-category="haircuts" data-id="667" data-name="Мужская стрижка" data-price="800">
+            <div class="service-row-info">
+              <div class="service-row-header">
+                <h3 class="service-row-name">Мужская стрижка</h3>
+                <span class="service-tag hit">Хит</span>
+                <span class="service-row-time">⏱ 45 мин</span>
               </div>
-              <p class="service-desc">Все включено: мытье головы, индивидуальная стрижка ножницами и машинкой, укладка стайлингом.</p>
-              <span class="service-duration">⏱ ~45 минут</span>
+              <p class="service-row-desc">Мытье головы, стрижка ножницами и машинкой, укладка премиум-стайлингом</p>
             </div>
-            <div class="service-actions">
-              <button class="btn-select-service" aria-label="Выбрать услугу">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-                В калькулятор
+            <div class="service-row-actions">
+              <span class="service-row-price">800 ₽</span>
+              <button class="btn-select-service" aria-label="Выбрать Мужская стрижка">
+                <svg class="icon-plus" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                <svg class="icon-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="btn-text">В расчет</span>
               </button>
-              <a href="https://b305499.yclients.com" target="_blank" rel="noopener noreferrer" class="btn-quick-book" title="Записаться сразу">
-                Записаться
-              </a>
             </div>
           </div>
 
-          <!-- 2. Комплекс услуг -->
-          <div class="service-card featured" data-category="combos" data-id="718" data-name="Комплекс услуг" data-price="1300">
-            <span class="service-badge">Выбор 80% гостей</span>
-            <div class="service-top">
-              <div class="service-header-row">
-                <h3 class="service-name">Комплекс услуг</h3>
-                <span class="service-price">1 300 ₽</span>
+          <!-- 2. Стрижка для студента -->
+          <div class="service-row" data-category="haircuts" data-id="664" data-name="Стрижка для студента" data-price="600">
+            <div class="service-row-info">
+              <div class="service-row-header">
+                <h3 class="service-row-name">Стрижка для студента</h3>
+                <span class="service-tag student">Выгода</span>
+                <span class="service-row-time">⏱ 40 мин</span>
               </div>
-              <p class="service-desc">Мужская стрижка + моделирование бороды и усов + бритье на выбор + профессиональный стайлинг.</p>
-              <span class="service-duration">⏱ ~90 минут</span>
+              <p class="service-row-desc">Специальная цена для студентов любого ВУЗа или колледжа по студенческому билету</p>
             </div>
-            <div class="service-actions">
-              <button class="btn-select-service">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-                В калькулятор
+            <div class="service-row-actions">
+              <span class="service-row-price">600 ₽</span>
+              <button class="btn-select-service" aria-label="Выбрать Стрижка для студента">
+                <svg class="icon-plus" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                <svg class="icon-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="btn-text">В расчет</span>
               </button>
-              <a href="https://b305499.yclients.com" target="_blank" rel="noopener noreferrer" class="btn-quick-book">
-                Записаться
-              </a>
             </div>
           </div>
 
-          <!-- 3. Королевское бритье -->
-          <div class="service-card" data-category="beard" data-id="719" data-name="Королевское бритье" data-price="800">
-            <div class="service-top">
-              <div class="service-header-row">
-                <h3 class="service-name">Королевское бритье</h3>
-                <span class="service-price">800 ₽</span>
+          <!-- 3. Детская стрижка -->
+          <div class="service-row" data-category="haircuts" data-id="665" data-name="Детская стрижка" data-price="500">
+            <div class="service-row-info">
+              <div class="service-row-header">
+                <h3 class="service-row-name">Детская стрижка</h3>
+                <span class="service-row-time">⏱ 35 мин</span>
               </div>
-              <p class="service-desc">Традиционное бритье опасной бритвой с предварительным распариванием кожи горячими полотенцами.</p>
-              <span class="service-duration">⏱ ~60 минут</span>
+              <p class="service-row-desc">Для юных джентльменов до 12 лет. Терпеливые мастера, бережный подход</p>
             </div>
-            <div class="service-actions">
-              <button class="btn-select-service">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-                В калькулятор
+            <div class="service-row-actions">
+              <span class="service-row-price">500 ₽</span>
+              <button class="btn-select-service" aria-label="Выбрать Детская стрижка">
+                <svg class="icon-plus" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                <svg class="icon-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="btn-text">В расчет</span>
               </button>
-              <a href="https://b305499.yclients.com" target="_blank" rel="noopener noreferrer" class="btn-quick-book">
-                Записаться
-              </a>
             </div>
           </div>
 
-          <!-- 4. Борода и усы -->
-          <div class="service-card" data-category="beard" data-id="24560" data-name="Моделирование бороды" data-price="500">
-            <div class="service-top">
-              <div class="service-header-row">
-                <h3 class="service-name">Моделирование бороды</h3>
-                <span class="service-price">500 ₽</span>
+          <!-- 4. Отец + Сын -->
+          <div class="service-row" data-category="haircuts combos" data-id="713" data-name="Отец + Сын" data-price="1300">
+            <div class="service-row-info">
+              <div class="service-row-header">
+                <h3 class="service-row-name">Отец + Сын</h3>
+                <span class="service-tag combo">Семейный</span>
+                <span class="service-row-time">⏱ 60 мин</span>
               </div>
-              <p class="service-desc">Сухое или влажное бритье опасной бритвой, распаривание лица, четкие контуры и уход с маслом.</p>
-              <span class="service-duration">⏱ ~35 минут</span>
+              <p class="service-row-desc">Одновременная стрижка для папы и сына в комфортной атмосфере барбершопа</p>
             </div>
-            <div class="service-actions">
-              <button class="btn-select-service">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-                В калькулятор
+            <div class="service-row-actions">
+              <span class="service-row-price">1 300 ₽</span>
+              <button class="btn-select-service" aria-label="Выбрать Отец + Сын">
+                <svg class="icon-plus" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                <svg class="icon-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="btn-text">В расчет</span>
               </button>
-              <a href="https://b305499.yclients.com" target="_blank" rel="noopener noreferrer" class="btn-quick-book">
-                Записаться
-              </a>
             </div>
           </div>
 
-          <!-- 5. Отец + Сын -->
-          <div class="service-card" data-category="combos" data-id="713" data-name="Отец + Сын" data-price="1300">
-            <span class="service-badge" style="background:#4F46E5; color:#fff;">Семейный</span>
-            <div class="service-top">
-              <div class="service-header-row">
-                <h3 class="service-name">Отец + Сын</h3>
-                <span class="service-price">1 300 ₽</span>
+          <!-- 5. Моделирование бороды -->
+          <div class="service-row featured" data-category="beard" data-id="24560" data-name="Моделирование бороды" data-price="500">
+            <div class="service-row-info">
+              <div class="service-row-header">
+                <h3 class="service-row-name">Моделирование бороды</h3>
+                <span class="service-tag hit">Популярно</span>
+                <span class="service-row-time">⏱ 35 мин</span>
               </div>
-              <p class="service-desc">Одновременная стрижка для папы и сына в комфортной атмосфере барбершопа.</p>
-              <span class="service-duration">⏱ ~60 минут</span>
+              <p class="service-row-desc">Распаривание кожи, четкие контуры опасной бритвой, уход питательным маслом</p>
             </div>
-            <div class="service-actions">
-              <button class="btn-select-service">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-                В калькулятор
+            <div class="service-row-actions">
+              <span class="service-row-price">500 ₽</span>
+              <button class="btn-select-service" aria-label="Выбрать Моделирование бороды">
+                <svg class="icon-plus" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                <svg class="icon-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="btn-text">В расчет</span>
               </button>
-              <a href="https://b305499.yclients.com" target="_blank" rel="noopener noreferrer" class="btn-quick-book">
-                Записаться
-              </a>
             </div>
           </div>
 
-          <!-- 6. Приди с другом -->
-          <div class="service-card" data-category="combos" data-id="714" data-name="Приди с другом" data-price="1400">
-            <span class="service-badge" style="background:#10B981; color:#0B0B0D;">Скидка 15%</span>
-            <div class="service-top">
-              <div class="service-header-row">
-                <h3 class="service-name">Приди с другом</h3>
-                <span class="service-price">1 400 ₽</span>
+          <!-- 6. Королевское бритье -->
+          <div class="service-row" data-category="beard" data-id="719" data-name="Королевское бритье" data-price="800">
+            <div class="service-row-info">
+              <div class="service-row-header">
+                <h3 class="service-row-name">Королевское бритье</h3>
+                <span class="service-tag luxury">SPA-ритуал</span>
+                <span class="service-row-time">⏱ 60 мин</span>
               </div>
-              <p class="service-desc">Приходите вдвоем с другом и оба получаете скидку 15% на стрижки у наших барберов.</p>
-              <span class="service-duration">⏱ ~60 минут</span>
+              <p class="service-row-desc">Традиционное бритье опасной бритвой с горячими полотенцами и пеной Proraso</p>
             </div>
-            <div class="service-actions">
-              <button class="btn-select-service">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-                В калькулятор
+            <div class="service-row-actions">
+              <span class="service-row-price">800 ₽</span>
+              <button class="btn-select-service" aria-label="Выбрать Королевское бритье">
+                <svg class="icon-plus" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                <svg class="icon-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="btn-text">В расчет</span>
               </button>
-              <a href="https://b305499.yclients.com" target="_blank" rel="noopener noreferrer" class="btn-quick-book">
-                Записаться
-              </a>
             </div>
           </div>
 
-          <!-- 7. Стрижка для студента -->
-          <div class="service-card" data-category="haircuts" data-id="664" data-name="Стрижка для студента" data-price="600">
-            <div class="service-top">
-              <div class="service-header-row">
-                <h3 class="service-name">Стрижка для студента</h3>
-                <span class="service-price">600 ₽</span>
+          <!-- 7. Бритье головы -->
+          <div class="service-row" data-category="beard" data-id="721" data-name="Бритье головы" data-price="600">
+            <div class="service-row-info">
+              <div class="service-row-header">
+                <h3 class="service-row-name">Бритье головы</h3>
+                <span class="service-row-time">⏱ 40 мин</span>
               </div>
-              <p class="service-desc">Выгодная стоимость для всех студентов любого ВУЗа или колледжа при предъявлении студенческого билета.</p>
-              <span class="service-duration">⏱ ~40 минут</span>
+              <p class="service-row-desc">Идеально гладкое бритье опасной бритвой, компресс и успокаивающий лосьон</p>
             </div>
-            <div class="service-actions">
-              <button class="btn-select-service">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-                В калькулятор
+            <div class="service-row-actions">
+              <span class="service-row-price">600 ₽</span>
+              <button class="btn-select-service" aria-label="Выбрать Бритье головы">
+                <svg class="icon-plus" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                <svg class="icon-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="btn-text">В расчет</span>
               </button>
-              <a href="https://b305499.yclients.com" target="_blank" rel="noopener noreferrer" class="btn-quick-book">
-                Записаться
-              </a>
             </div>
           </div>
 
-          <!-- 8. Детская стрижка -->
-          <div class="service-card" data-category="haircuts" data-id="665" data-name="Детская стрижка" data-price="500">
-            <div class="service-top">
-              <div class="service-header-row">
-                <h3 class="service-name">Детская стрижка</h3>
-                <span class="service-price">500 ₽</span>
+          <!-- 8. Камуфляж седины -->
+          <div class="service-row" data-category="beard" data-id="720" data-name="Камуфляж седины/бороды" data-price="700">
+            <div class="service-row-info">
+              <div class="service-row-header">
+                <h3 class="service-row-name">Камуфляж седины</h3>
+                <span class="service-row-time">⏱ 25 мин</span>
               </div>
-              <p class="service-desc">Стрижка для юных джентльменов до 12 лет. Бережный подход, терпеливые мастера. Мытье головы +100 ₽.</p>
-              <span class="service-duration">⏱ ~35 минут</span>
+              <p class="service-row-desc">Естественное тонирование седины бороды или головы без эффекта окрашивания</p>
             </div>
-            <div class="service-actions">
-              <button class="btn-select-service">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-                В калькулятор
+            <div class="service-row-actions">
+              <span class="service-row-price">700 ₽</span>
+              <button class="btn-select-service" aria-label="Выбрать Камуфляж седины">
+                <svg class="icon-plus" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                <svg class="icon-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="btn-text">В расчет</span>
               </button>
-              <a href="https://b305499.yclients.com" target="_blank" rel="noopener noreferrer" class="btn-quick-book">
-                Записаться
-              </a>
             </div>
           </div>
 
-          <!-- 9. Камуфляж седины -->
-          <div class="service-card" data-category="beard" data-id="720" data-name="Камуфляж седины/бороды" data-price="700">
-            <div class="service-top">
-              <div class="service-header-row">
-                <h3 class="service-name">Камуфляж седины</h3>
-                <span class="service-price">700 ₽</span>
+          <!-- 9. Комплекс услуг (Стрижка + Борода) -->
+          <div class="service-row featured" data-category="combos" data-id="718" data-name="Комплекс услуг" data-price="1300">
+            <div class="service-row-info">
+              <div class="service-row-header">
+                <h3 class="service-row-name">Комплекс: Стрижка + Борода</h3>
+                <span class="service-tag hit">Выбор 80%</span>
+                <span class="service-row-time">⏱ 90 мин</span>
               </div>
-              <p class="service-desc">Естественное тонирование седых волос головы или бороды без эффекта окрашивания за 15 минут.</p>
-              <span class="service-duration">⏱ ~25 минут</span>
+              <p class="service-row-desc">Полный образ: мужская стрижка + моделирование бороды и усов + укладка</p>
             </div>
-            <div class="service-actions">
-              <button class="btn-select-service">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-                В калькулятор
+            <div class="service-row-actions">
+              <span class="service-row-price">1 300 ₽</span>
+              <button class="btn-select-service" aria-label="Выбрать Комплекс услуг">
+                <svg class="icon-plus" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                <svg class="icon-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="btn-text">В расчет</span>
               </button>
-              <a href="https://b305499.yclients.com" target="_blank" rel="noopener noreferrer" class="btn-quick-book">
-                Записаться
-              </a>
             </div>
           </div>
 
-          <!-- 10. Бритье головы -->
-          <div class="service-card" data-category="beard" data-id="721" data-name="Бритье головы" data-price="600">
-            <div class="service-top">
-              <div class="service-header-row">
-                <h3 class="service-name">Бритье головы</h3>
-                <span class="service-price">600 ₽</span>
+          <!-- 10. Приди с другом -->
+          <div class="service-row" data-category="combos" data-id="714" data-name="Приди с другом" data-price="1400">
+            <div class="service-row-info">
+              <div class="service-row-header">
+                <h3 class="service-row-name">Приди с другом (-15%)</h3>
+                <span class="service-tag discount">Выгода</span>
+                <span class="service-row-time">⏱ 60 мин</span>
               </div>
-              <p class="service-desc">Идеально гладкое бритье опасной бритвой с распариванием и успокаивающим лосьоном.</p>
-              <span class="service-duration">⏱ ~40 минут</span>
+              <p class="service-row-desc">Две мужские стрижки одновременно с приятной скидкой 15% для компании</p>
             </div>
-            <div class="service-actions">
-              <button class="btn-select-service">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-                В калькулятор
+            <div class="service-row-actions">
+              <span class="service-row-price">1 400 ₽</span>
+              <button class="btn-select-service" aria-label="Выбрать Приди с другом">
+                <svg class="icon-plus" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                <svg class="icon-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="btn-text">В расчет</span>
               </button>
-              <a href="https://b305499.yclients.com" target="_blank" rel="noopener noreferrer" class="btn-quick-book">
-                Записаться
-              </a>
             </div>
           </div>
 
           <!-- 11. Черная маска -->
-          <div class="service-card" data-category="care" data-id="313286" data-name="Черная маска" data-price="300">
-            <div class="service-top">
-              <div class="service-header-row">
-                <h3 class="service-name">Черная маска</h3>
-                <span class="service-price">300 ₽</span>
+          <div class="service-row" data-category="care" data-id="313286" data-name="Черная маска" data-price="300">
+            <div class="service-row-info">
+              <div class="service-row-header">
+                <h3 class="service-row-name">Черная маска</h3>
+                <span class="service-row-time">⏱ 20 мин</span>
               </div>
-              <p class="service-desc">Глубокое очищение пор лица, удаление токсинов и сужение пор. Кожа свежая и ухоженная.</p>
-              <span class="service-duration">⏱ ~20 минут</span>
+              <p class="service-row-desc">Глубокое очищение пор лица, удаление токсинов и свежесть кожи</p>
             </div>
-            <div class="service-actions">
-              <button class="btn-select-service">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-                В калькулятор
+            <div class="service-row-actions">
+              <span class="service-row-price">300 ₽</span>
+              <button class="btn-select-service" aria-label="Выбрать Черная маска">
+                <svg class="icon-plus" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                <svg class="icon-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="btn-text">В расчет</span>
               </button>
-              <a href="https://b305499.yclients.com" target="_blank" rel="noopener noreferrer" class="btn-quick-book">
-                Записаться
-              </a>
             </div>
           </div>
 
           <!-- 12. Мытье + укладка -->
-          <div class="service-card" data-category="care" data-id="717" data-name="Мытье головы + укладка" data-price="200">
-            <div class="service-top">
-              <div class="service-header-row">
-                <h3 class="service-name">Мытье + укладка</h3>
-                <span class="service-price">200 ₽</span>
+          <div class="service-row" data-category="care" data-id="717" data-name="Мытье головы + укладка" data-price="200">
+            <div class="service-row-info">
+              <div class="service-row-header">
+                <h3 class="service-row-name">Мытье головы + укладка</h3>
+                <span class="service-row-time">⏱ 20 мин</span>
               </div>
-              <p class="service-desc">Мытье головы премиальным шампунем и моделирование стильной укладки перед важным событием.</p>
-              <span class="service-duration">⏱ ~20 минут</span>
+              <p class="service-row-desc">Мытье профессиональным шампунем и укладка глиной или помадой перед встречей</p>
             </div>
-            <div class="service-actions">
-              <button class="btn-select-service">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-                В калькулятор
+            <div class="service-row-actions">
+              <span class="service-row-price">200 ₽</span>
+              <button class="btn-select-service" aria-label="Выбрать Мытье головы + укладка">
+                <svg class="icon-plus" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                <svg class="icon-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="btn-text">В расчет</span>
               </button>
-              <a href="https://b305499.yclients.com" target="_blank" rel="noopener noreferrer" class="btn-quick-book">
-                Записаться
-              </a>
             </div>
           </div>
 
           <!-- 13. Воск -->
-          <div class="service-card" data-category="care" data-id="313287" data-name="Воск (нос / уши)" data-price="100">
-            <div class="service-top">
-              <div class="service-header-row">
-                <h3 class="service-name">Воск (нос / уши)</h3>
-                <span class="service-price">100 ₽</span>
+          <div class="service-row" data-category="care" data-id="313287" data-name="Воск (нос / уши)" data-price="100">
+            <div class="service-row-info">
+              <div class="service-row-header">
+                <h3 class="service-row-name">Воск (нос / уши)</h3>
+                <span class="service-row-time">⏱ 10 мин</span>
               </div>
-              <p class="service-desc">Быстрое и безболезненное удаление нежелательных волосков из носа или ушных раковин горячим воском.</p>
-              <span class="service-duration">⏱ ~10 минут</span>
+              <p class="service-row-desc">Быстрое и безболезненное удаление нежелательных волосков горячим воском</p>
             </div>
-            <div class="service-actions">
-              <button class="btn-select-service">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-                В калькулятор
+            <div class="service-row-actions">
+              <span class="service-row-price">100 ₽</span>
+              <button class="btn-select-service" aria-label="Выбрать Воск">
+                <svg class="icon-plus" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                <svg class="icon-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="btn-text">В расчет</span>
               </button>
-              <a href="https://b305499.yclients.com" target="_blank" rel="noopener noreferrer" class="btn-quick-book">
-                Записаться
-              </a>
             </div>
           </div>
 
           <!-- 14. Патчи для глаз -->
-          <div class="service-card" data-category="care" data-id="24557" data-name="Патчи для глаз" data-price="100">
-            <div class="service-top">
-              <div class="service-header-row">
-                <h3 class="service-name">Патчи для глаз</h3>
-                <span class="service-price">100 ₽</span>
+          <div class="service-row" data-category="care" data-id="24557" data-name="Патчи для глаз" data-price="100">
+            <div class="service-row-info">
+              <div class="service-row-header">
+                <h3 class="service-row-name">Патчи для глаз</h3>
+                <span class="service-row-time">⏱ 15 мин</span>
               </div>
-              <p class="service-desc">Гидрогелевые накладки с активными компонентами против следов усталости и темных кругов во время стрижки.</p>
-              <span class="service-duration">⏱ ~15 минут</span>
+              <p class="service-row-desc">Гидрогелевые накладки против следов усталости и темных кругов во время стрижки</p>
             </div>
-            <div class="service-actions">
-              <button class="btn-select-service">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-                В калькулятор
+            <div class="service-row-actions">
+              <span class="service-row-price">100 ₽</span>
+              <button class="btn-select-service" aria-label="Выбрать Патчи для глаз">
+                <svg class="icon-plus" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                <svg class="icon-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="btn-text">В расчет</span>
               </button>
-              <a href="https://b305499.yclients.com" target="_blank" rel="noopener noreferrer" class="btn-quick-book">
-                Записаться
-              </a>
             </div>
           </div>
 
-          <!-- 15. Бесплатный бар -->
-          <div class="service-card" data-category="care" data-id="715" data-name="Чай, кофе, виски" data-price="0">
-            <span class="service-badge" style="background:#10B981; color:#0B0B0D;">Бесплатно</span>
-            <div class="service-top">
-              <div class="service-header-row">
-                <h3 class="service-name">Бар для гостей</h3>
-                <span class="service-price" style="color:#10B981;">0 ₽</span>
-              </div>
-              <p class="service-desc">Свежесваренный зерновой кофе, черный/зеленый чай или напитки покрепче для каждого гостя клуба.</p>
-              <span class="service-duration">☕ В любое время</span>
-            </div>
-            <div class="service-actions">
-              <button class="btn-select-service" style="opacity: 0.5; pointer-events: none;">
-                Включено для всех
-              </button>
-              <a href="https://b305499.yclients.com" target="_blank" rel="noopener noreferrer" class="btn-quick-book">
-                Записаться
-              </a>
-            </div>
-          </div>
+        </div>
 
+        <!-- Complimentary Bar Banner -->
+        <div class="complimentary-bar-banner reveal-on-scroll">
+          <div class="comp-icon-box">☕</div>
+          <div class="comp-body">
+            <h4 class="comp-title">Бесплатный лаунж-бар для каждого гостя</h4>
+            <p class="comp-desc">Свежесваренный зерновой кофе, чай или напитки покрепче, зона с Sony PlayStation 4 — включены в любой визит абсолютно бесплатно.</p>
+          </div>
+          <span class="comp-badge">0 ₽ Бесплатно</span>
         </div>
 
         <!-- Interactive Calculator Bar -->
         <div id="calcBar" class="calculator-bar" style="display: none;">
           <div class="calc-info">
             <div class="calc-icon-badge">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="9" cy="21" r="1"></circle>
                 <circle cx="20" cy="21" r="1"></circle>
                 <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
               </svg>
             </div>
             <div>
-              <div class="calc-text-title">Выбранные услуги для записи</div>
-              <div class="calc-text-sub">В корзине: <span id="calcCount" class="text-gold">0 услуг</span></div>
+              <div class="calc-text-title">В расчете: <span id="calcCount" class="text-gold">0 услуг</span></div>
+              <div class="calc-text-sub">Итого: <strong id="calcTotal" class="total-price">0 ₽</strong></div>
             </div>
           </div>
 
           <div class="calc-totals">
-            <div class="total-amount-box">
-              <div class="total-label">Итого к оплате:</div>
-              <div id="calcTotal" class="total-price">0 ₽</div>
-            </div>
-            <a id="calcBookBtn" href="https://b305499.yclients.com" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-lg">
-              Записаться на выбранное
+            <button id="calcResetBtn" class="calc-reset-btn" type="button" title="Очистить выбор">Сбросить</button>
+            <a id="calcBookBtn" href="https://b305499.yclients.com" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-calc-action">
+              <span>Записаться онлайн</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
           </div>
         </div>
