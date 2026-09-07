@@ -2,6 +2,7 @@
 /hero_*.png
 /current_hero.png
 /font_preview_*.png
+/services_*.png
 *.log
 
 # Local backups
