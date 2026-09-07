@@ -1,6 +1,7 @@
-﻿# Screenshots in root directory
+# Screenshots in root directory
 /hero_*.png
 /current_hero.png
+/font_preview_*.png
 *.log
 
 # Local backups

@@ -282,4 +282,51 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   initScrollReveal();
+
+  /* ==========================================
+     Interactive Font Playground Switcher
+     ========================================== */
+  const initFontSwitcher = () => {
+    const dock = document.getElementById('fontSwitcherDock');
+    const closeBtn = document.getElementById('fontDockClose');
+    const restoreBtn = document.getElementById('fontDockRestore');
+    const pills = document.querySelectorAll('.font-pill');
+    if (!dock || !pills.length) return;
+
+    const initialTheme = localStorage.getItem('barber-font-theme') || document.documentElement.getAttribute('data-font-theme') || 'modern';
+    setTheme(initialTheme);
+
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        const theme = pill.dataset.theme;
+        setTheme(theme);
+        localStorage.setItem('barber-font-theme', theme);
+      });
+    });
+
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-font-theme', theme);
+      pills.forEach(p => {
+        if (p.dataset.theme === theme) {
+          p.classList.add('active');
+        } else {
+          p.classList.remove('active');
+        }
+      });
+    }
+
+    if (closeBtn && restoreBtn) {
+      closeBtn.addEventListener('click', () => {
+        dock.classList.add('is-hidden');
+        restoreBtn.classList.add('is-visible');
+      });
+
+      restoreBtn.addEventListener('click', () => {
+        dock.classList.remove('is-hidden');
+        restoreBtn.classList.remove('is-visible');
+      });
+    }
+  };
+
+  initFontSwitcher();
 });

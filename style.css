@@ -34,6 +34,10 @@
   --font-display: 'Cinzel', Georgia, serif;
   --font-heading: 'Montserrat', sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-script: 'Lobster', cursive;
+  --font-vintage: 'Playfair Display', Georgia, serif;
+  --font-craft: 'Yeseva One', Georgia, serif;
+  --font-poster: 'Oswald', sans-serif;
 
   /* Transitions & Shadows */
   --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -2092,5 +2096,260 @@ h1, h2, h3, h4 {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
+  }
+}
+
+/* ==========================================================================
+   Typography Themes / Presets (Realtime Font Switcher)
+   ========================================================================== */
+
+/* 1. Theme: Retro Sign-Painter Script (Lobster) — в стиле вывески и леттеринга логотипа */
+[data-font-theme="script"] {
+  --font-heading: 'Lobster', cursive;
+}
+[data-font-theme="script"] h1,
+[data-font-theme="script"] h2,
+[data-font-theme="script"] h3,
+[data-font-theme="script"] .hero-title,
+[data-font-theme="script"] .section-title {
+  font-family: var(--font-script);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.35;
+}
+[data-font-theme="script"] .hero-title {
+  font-size: clamp(34px, 4.4vw, 52px);
+}
+[data-font-theme="script"] .section-title {
+  font-size: clamp(32px, 4.2vw, 48px);
+}
+[data-font-theme="script"] .btn,
+[data-font-theme="script"] .nav-link,
+[data-font-theme="script"] .section-badge {
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+/* 2. Theme: Craft Barbershop (Yeseva One) — винтажная этикетка помад и масел, капли и засечки */
+[data-font-theme="craft"] {
+  --font-heading: 'Yeseva One', Georgia, serif;
+}
+[data-font-theme="craft"] h1,
+[data-font-theme="craft"] h2,
+[data-font-theme="craft"] h3,
+[data-font-theme="craft"] .hero-title,
+[data-font-theme="craft"] .section-title,
+[data-font-theme="craft"] .service-title {
+  font-family: var(--font-craft);
+  font-weight: 400;
+  letter-spacing: 0.015em;
+  line-height: 1.25;
+}
+[data-font-theme="craft"] .hero-title {
+  font-size: clamp(30px, 4vw, 48px);
+}
+
+/* 3. Theme: Premium Vintage Serif (Playfair Display) — классический закрытый английский клуб */
+[data-font-theme="vintage"] {
+  --font-heading: 'Playfair Display', Georgia, serif;
+}
+[data-font-theme="vintage"] h1,
+[data-font-theme="vintage"] h2,
+[data-font-theme="vintage"] h3,
+[data-font-theme="vintage"] .hero-title,
+[data-font-theme="vintage"] .section-title,
+[data-font-theme="vintage"] .service-title {
+  font-family: var(--font-vintage);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+[data-font-theme="vintage"] .hero-title {
+  font-size: clamp(30px, 4vw, 48px);
+}
+
+/* 4. Theme: Brooklyn Wood-Type Poster (Oswald) — брутальный сжатый винтажный гротеск */
+[data-font-theme="poster"] {
+  --font-heading: 'Oswald', sans-serif;
+}
+[data-font-theme="poster"] h1,
+[data-font-theme="poster"] h2,
+[data-font-theme="poster"] h3,
+[data-font-theme="poster"] .hero-title,
+[data-font-theme="poster"] .section-title,
+[data-font-theme="poster"] .service-title {
+  font-family: var(--font-poster);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+[data-font-theme="poster"] .hero-title {
+  font-size: clamp(30px, 4vw, 48px);
+}
+
+/* 5. Theme: Modern Minimal (Montserrat - Default) */
+[data-font-theme="modern"] {
+  --font-heading: 'Montserrat', sans-serif;
+}
+
+/* ==========================================================================
+   Interactive Font Playground Dock
+   ========================================================================== */
+.font-switcher-dock {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  background: rgba(14, 14, 18, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  border-radius: var(--radius-full);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85), 0 0 30px rgba(212, 175, 55, 0.2);
+  padding: 8px 12px 8px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 96vw;
+  transition: all var(--transition-smooth);
+}
+
+.font-switcher-dock.is-hidden {
+  transform: translateX(-50%) translateY(140%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.font-dock-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.font-dock-icon {
+  font-size: 17px;
+}
+
+.font-dock-title {
+  font-size: 12.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold-light);
+}
+
+.font-dock-pills {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 2px;
+}
+
+.font-dock-pills::-webkit-scrollbar {
+  display: none;
+}
+
+.font-pill {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-full);
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 7px 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.font-pill:hover {
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--text-main);
+  border-color: rgba(212, 175, 55, 0.4);
+}
+
+.font-pill.active {
+  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 100%);
+  color: #0B0B0D;
+  border-color: var(--gold-primary);
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.4);
+}
+
+.font-dock-close {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  transition: all var(--transition-fast);
+  margin-left: 4px;
+}
+
+.font-dock-close:hover {
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.font-dock-restore {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9998;
+  background: rgba(18, 18, 24, 0.95);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-full);
+  color: var(--gold-light);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 16px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+  display: none;
+  align-items: center;
+  gap: 6px;
+  transition: all var(--transition-fast);
+}
+
+.font-dock-restore.is-visible {
+  display: flex;
+}
+
+.font-dock-restore:hover {
+  background: var(--gold-primary);
+  color: #08080A;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+  .font-switcher-dock {
+    bottom: 84px; /* above mobile sticky bar */
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: var(--radius-md);
+    padding: 12px 14px;
+    width: calc(100% - 32px);
+  }
+  .font-dock-header {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .font-dock-pills {
+    width: 100%;
   }
 }
